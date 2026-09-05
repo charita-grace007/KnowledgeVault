@@ -1,0 +1,6 @@
+{
+  "name": "Re:mind",
+  "description": "A personal knowledge assistant web app to capture thoughts, notes, and ideas with Firebase authentication and Firestore persistence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

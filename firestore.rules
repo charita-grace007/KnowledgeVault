@@ -1,0 +1,66 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net: default deny all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidItem(data) {
+      return data.keys().hasAll(['text', 'summary', 'tags', 'createdAt']) &&
+        data.keys().size() == 4 &&
+        data.text is string &&
+        data.text.size() >= 1 &&
+        data.text.size() <= 10000 &&
+        data.summary is string &&
+        data.summary.size() <= 1000 &&
+        data.tags is list &&
+        data.tags.size() <= 20 &&
+        (data.tags.size() == 0 || (data.tags[0] is string && data.tags[0].size() <= 50)) &&
+        data.createdAt is timestamp;
+    }
+
+    // Isolated user knowledge items
+    match /users/{uid}/items/{itemId} {
+      allow get, delete: if isOwner(uid) && isValidId(uid) && isValidId(itemId);
+      allow list: if isOwner(uid) && isValidId(uid);
+      allow create: if isOwner(uid) &&
+        isValidId(uid) &&
+        isValidId(itemId) &&
+        isValidItem(incoming()) &&
+        incoming().createdAt == request.time;
+      allow update: if isOwner(uid) &&
+        isValidId(uid) &&
+        isValidId(itemId) &&
+        isValidItem(incoming()) &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().diff(existing()).affectedKeys().hasOnly(['text', 'summary', 'tags']);
+    }
+
+    // Allow connectivity check document ping
+    match /test/connection {
+      allow get: if true;
+    }
+  }
+}

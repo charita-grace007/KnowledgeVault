@@ -1,0 +1,38 @@
+{
+  "entities": {
+    "Item": {
+      "title": "Item",
+      "description": "A saved knowledge or memory item belonging to a user",
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The raw thought or note captured by the user",
+          "minLength": 1,
+          "maxLength": 10000
+        },
+        "summary": {
+          "type": "string",
+          "description": "Concise overview or essence of the captured thought",
+          "maxLength": 1000
+        },
+        "tags": {
+          "type": "array",
+          "description": "Keywords and categorization tags"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the item was recorded"
+        }
+      },
+      "required": ["text", "summary", "tags", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{uid}/items/{itemId}": {
+      "schema": "Item",
+      "description": "Collection of knowledge items isolated per user"
+    }
+  }
+}
