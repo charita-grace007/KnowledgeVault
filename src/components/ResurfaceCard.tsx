@@ -45,7 +45,7 @@ export const ResurfaceCard: React.FC<ResurfaceCardProps> = ({
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: -10, scale: 0.97, transition: { duration: 0.2 } }}
       transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
-      className="w-full mb-4 rounded-2xl bg-[#FCF8FB] border-2 border-[#CFBEED] p-4 sm:p-5 shadow-scrapbook relative overflow-hidden backdrop-blur-xs"
+      className="w-full mb-4 rounded-2xl bg-[#FCF8FB] border-2 border-[#D4A5B0] p-4 sm:p-5 shadow-scrapbook relative overflow-hidden backdrop-blur-xs"
     >
       {/* Decorative Washi Tape Accent */}
       <WashiTape color="lavender" className="-top-2 left-6" rotate="-rotate-2" />
@@ -53,20 +53,20 @@ export const ResurfaceCard: React.FC<ResurfaceCardProps> = ({
       {/* Top Header */}
       <div className="flex items-start justify-between gap-3 mb-2.5">
         <div className="flex flex-wrap items-center gap-2">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#541423] text-[#FCFAF6] shadow-xs">
-            <DoodleSparkle className="w-3.5 h-3.5 text-[#F9D0D3]" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#BA1B35] text-[#FCFAF7] shadow-xs">
+            <DoodleSparkle className="w-3.5 h-3.5 text-[#FDECEF]" />
             <span className="text-[10px] font-mono font-bold tracking-wider uppercase">
               Resurface
             </span>
           </div>
 
-          <h3 className="text-sm sm:text-base font-serif font-bold tracking-tight text-[#360B15]">
+          <h3 className="text-sm sm:text-base font-serif font-bold tracking-tight text-[#561320]">
             A related memory from your vault
           </h3>
 
           {createdAtDate && (
-            <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-mono text-[#83243A]/60">
-              <Clock className="w-3 h-3 text-[#83243A]/50" />
+            <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-mono text-[#8E162B]/65">
+              <Clock className="w-3 h-3 text-[#BA1B35]/50" />
               {formatRelativeTime(createdAtDate)}
             </span>
           )}
@@ -78,40 +78,40 @@ export const ResurfaceCard: React.FC<ResurfaceCardProps> = ({
           onClick={onDismiss}
           aria-label="Dismiss suggestion"
           title="Dismiss suggestion"
-          className="text-[#83243A]/60 hover:text-[#360B15] p-1 rounded-lg hover:bg-[#F9D0D3]/30 transition-colors cursor-pointer shrink-0"
+          className="text-[#BA1B35]/70 hover:text-[#561320] p-1 rounded-lg hover:bg-[#FDECEF]/60 transition-colors cursor-pointer shrink-0"
         >
           <X className="w-4 h-4" />
         </button>
       </div>
 
       {/* Resurfaced Summary */}
-      <div className="pl-3 sm:pl-3.5 border-l-2 border-[#83243A] my-2.5 bg-[#FAF2EB]/40 py-1.5 rounded-r-lg">
-        <p className="text-xs sm:text-sm font-serif font-bold text-[#360B15] leading-snug tracking-tight">
+      <div className="pl-3 sm:pl-3.5 border-l-2 border-[#BA1B35] my-2.5 bg-[#FAF2EB]/40 py-1.5 rounded-r-lg">
+        <p className="text-xs sm:text-sm font-serif font-bold text-[#561320] leading-snug tracking-tight">
           {item.summary}
         </p>
         {item.text && item.text !== item.summary && (
-          <p className="text-[11px] sm:text-xs text-[#6B1D2F]/75 mt-1 line-clamp-2 leading-relaxed font-sans">
+          <p className="text-[11px] sm:text-xs text-[#661223]/80 mt-1 line-clamp-2 leading-relaxed font-sans">
             {item.text}
           </p>
         )}
       </div>
 
       {/* Matching overlap metadata & quick action */}
-      <div className="flex flex-wrap items-center justify-between gap-2.5 pt-2.5 mt-2 border-t border-[#6B1D2F]/10">
+      <div className="flex flex-wrap items-center justify-between gap-2.5 pt-2.5 mt-2 border-t border-[#BA1B35]/15">
         <div className="flex flex-wrap items-center gap-1.5 text-[10px] sm:text-xs">
-          <span className="text-[#83243A]/80 font-mono font-medium">Thematic connection:</span>
+          <span className="text-[#8E162B] font-mono font-medium">Thematic connection:</span>
           {displayLabels.length > 0 ? (
             displayLabels.map((label) => (
               <span
                 key={label}
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#FFFDF9] text-[#6B1D2F] border border-[#CFBEED] font-mono font-semibold shadow-2xs"
+                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#FFFDF9] text-[#8E162B] border border-[#F8CDD5] font-mono font-semibold shadow-2xs"
               >
-                <TagIcon className="w-2.5 h-2.5 text-[#83243A] shrink-0" />
+                <TagIcon className="w-2.5 h-2.5 text-[#BA1B35] shrink-0" />
                 {label.startsWith('#') ? label : `#${label}`}
               </span>
             ))
           ) : (
-            <span className="text-[#83243A]/50 italic font-mono">conceptual overlap</span>
+            <span className="text-[#BA1B35]/60 italic font-mono">conceptual overlap</span>
           )}
         </div>
 
@@ -119,9 +119,9 @@ export const ResurfaceCard: React.FC<ResurfaceCardProps> = ({
           <button
             type="button"
             onClick={handleAppend}
-            className="inline-flex items-center gap-1 text-[11px] font-serif font-semibold text-[#6B1D2F] hover:text-[#360B15] bg-[#FFFDF9] hover:bg-[#FDE8E9]/60 px-3 py-1 rounded-lg border border-[#83243A]/30 transition-all shadow-2xs hover:shadow-xs active:translate-x-[0.5px] active:translate-y-[0.5px] cursor-pointer"
+            className="inline-flex items-center gap-1 text-[11px] font-serif font-semibold text-[#8E162B] hover:text-[#561320] bg-[#FFFDF9] hover:bg-[#FDECEF] px-3 py-1 rounded-lg border border-[#BA1B35]/30 transition-all shadow-2xs hover:shadow-xs active:translate-x-[0.5px] active:translate-y-[0.5px] cursor-pointer"
           >
-            <CornerDownRight className="w-3 h-3 text-[#83243A]" />
+            <CornerDownRight className="w-3 h-3 text-[#BA1B35]" />
             <span>Connect to current thought</span>
           </button>
         )}

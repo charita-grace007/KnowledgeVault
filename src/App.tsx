@@ -9,7 +9,6 @@ import {
 import { auth, db, testConnection, handleFirestoreError } from './lib/firebase';
 import { OperationType, type Item } from './types';
 import { Header } from './components/Header';
-import { MarqueeStrip } from './components/MarqueeStrip';
 import { ThoughtInput } from './components/ThoughtInput';
 import { ItemList } from './components/ItemList';
 import { SignInPrompt } from './components/SignInPrompt';
@@ -90,17 +89,14 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF7F2] paper-grid text-[#2D2124] font-sans selection:bg-[#F8D5D8] selection:text-[#5A1424]">
+    <div className="min-h-screen flex flex-col bg-[#FAF7F2] paper-grid text-[#2D2124] font-sans selection:bg-[#F8CDD5] selection:text-[#661223]">
       {/* Top Navigation */}
       <Header user={user} loading={authLoading} />
-
-      {/* Kinetic Scrolling Marquee Strip */}
-      <MarqueeStrip />
 
       {/* Main Content Area */}
       <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 flex flex-col relative">
         {firestoreError && (
-          <div className="max-w-2xl mx-auto mb-6 p-4 rounded-2xl bg-[#FFF5F5] border border-[#F2B3B8] text-[#83243A] text-xs sm:text-sm w-full shadow-xs">
+          <div className="max-w-2xl mx-auto mb-6 p-4 rounded-2xl bg-[#FFF6F7] border border-[#F2A9B6] text-[#BA1B35] text-xs sm:text-sm w-full shadow-xs">
             <span className="font-serif font-bold block mb-1">Database synchronization error:</span>
             {firestoreError}
           </div>
@@ -108,30 +104,30 @@ export default function App() {
 
         {authLoading ? (
           <div className="flex flex-col items-center justify-center py-24 gap-3 my-auto">
-            <div className="w-10 h-10 rounded-full border-2 border-[#F9D0D3] border-t-[#6B1D2F] animate-spin" />
-            <p className="text-xs text-[#83243A]/70 font-mono font-medium">Opening your knowledge vault...</p>
+            <div className="w-10 h-10 rounded-full border-2 border-[#F8CDD5] border-t-[#BA1B35] animate-spin" />
+            <p className="text-xs text-[#BA1B35] font-mono font-medium">Opening your knowledge vault...</p>
           </div>
         ) : user ? (
           <div className="flex-1 flex flex-col">
             {/* Greeting Header */}
             <header className="w-full max-w-2xl text-center mb-10 mx-auto relative">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FDF0EE] text-[#83243A] text-[11px] font-mono uppercase tracking-widest border border-[#F9D0D3] mb-3 shadow-2xs">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FDECEF] text-[#BA1B35] text-[11px] font-mono uppercase tracking-widest border border-[#F8CDD5] mb-3 shadow-2xs">
                 <span>✦</span>
                 <span>DESK JOURNAL</span>
                 <span>✦</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#360B15] mb-3 tracking-tight leading-[1.15]">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#561320] mb-3 tracking-tight leading-[1.15]">
                 {getTimeGreeting()},{' '}
-                <span className="italic font-normal text-[#83243A]">
+                <span className="italic font-normal text-[#BA1B35]">
                   {user.displayName ? user.displayName.split(' ')[0] : 'friend'}
                 </span>
                 .
               </h1>
 
-              <p className="text-[#6B1D2F]/75 text-sm sm:text-base font-sans leading-relaxed max-w-lg mx-auto">
+              <p className="text-[#661223]/80 text-sm sm:text-base font-sans leading-relaxed max-w-lg mx-auto">
                 A quiet, tactile repository for your thoughts & curiosities.{' '}
-                <span className="inline-block font-mono font-semibold text-[#541423] bg-[#FAF1E4] px-2 py-0.5 rounded-md border border-[#E5DDD0]">
+                <span className="inline-block font-mono font-semibold text-[#751225] bg-[#FAF2EB] px-2 py-0.5 rounded-md border border-[#E8DFC8]">
                   {items.length} {items.length === 1 ? 'thought' : 'thoughts'} indexed
                 </span>
               </p>
@@ -149,14 +145,14 @@ export default function App() {
       </main>
 
       {/* Editorial Footer */}
-      <footer className="border-t border-[#6B1D2F]/10 bg-[#FAF7F2]/80 backdrop-blur-xs py-8 text-center text-xs text-[#83243A]/60 font-sans">
+      <footer className="border-t border-[#BA1B35]/15 bg-[#FAF7F2]/80 backdrop-blur-xs py-8 text-center text-xs text-[#8E162B]/70 font-sans">
         <div className="max-w-md mx-auto px-4 flex flex-col items-center gap-2">
-          <div className="flex items-center gap-2 text-[#83243A]/40 font-mono text-[10px] tracking-widest">
+          <div className="flex items-center gap-2 text-[#BA1B35]/50 font-mono text-[10px] tracking-widest">
             <span>✧</span>
             <span>RE:MIND KNOWLEDGE ARCHIVE</span>
             <span>✧</span>
           </div>
-          <p className="text-[11px] text-[#6B1D2F]/70">
+          <p className="text-[11px] text-[#661223]/75">
             Handcrafted with thoughtful care &bull; Encrypted & authenticated under your account
           </p>
         </div>

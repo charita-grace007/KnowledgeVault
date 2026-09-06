@@ -306,7 +306,7 @@ export const ThoughtInput: React.FC<ThoughtInputProps> = ({ uid, pastItems = [],
       <form
         id="thought-input-form"
         onSubmit={handleSubmit}
-        className="relative bg-[#FFFDF9] rounded-3xl border-2 border-[#6B1D2F]/15 shadow-scrapbook-md p-5 sm:p-7 transition-all focus-within:border-[#83243A]/40 focus-within:shadow-scrapbook-lg"
+        className="relative bg-[#FFFDF9] rounded-3xl border-2 border-[#BA1B35]/20 shadow-scrapbook-md p-5 sm:p-7 transition-all focus-within:border-[#BA1B35]/50 focus-within:shadow-scrapbook-lg"
       >
         {/* Playful Washi Tape Accent */}
         <WashiTape color="blush" className="-top-2.5 right-8" rotate="rotate-2" />
@@ -315,12 +315,12 @@ export const ThoughtInput: React.FC<ThoughtInputProps> = ({ uid, pastItems = [],
         <div className="flex items-center justify-between mb-3">
           <label
             htmlFor="thought-textarea"
-            className="text-xl sm:text-2xl font-serif text-[#360B15] flex items-center gap-2.5 font-bold tracking-tight"
+            className="text-xl sm:text-2xl font-serif text-[#561320] flex items-center gap-2.5 font-bold tracking-tight"
           >
-            <DoodleSparkle className="w-4 h-4 text-[#83243A]" />
+            <DoodleSparkle className="w-4 h-4 text-[#BA1B35]" />
             What's on your mind?
           </label>
-          <span className="text-xs text-[#83243A]/60 font-mono">
+          <span className="text-xs text-[#8E162B]/65 font-mono">
             {text.length}/10,000
           </span>
         </div>
@@ -334,22 +334,22 @@ export const ThoughtInput: React.FC<ThoughtInputProps> = ({ uid, pastItems = [],
             onKeyDown={handleKeyDown}
             rows={3}
             placeholder="Capture an insight, quick note, article excerpt, or reflection... (use #tags anywhere)"
-            className="w-full resize-y rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0] p-4 text-[#2D2124] placeholder:text-[#83243A]/40 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#F9D0D3]/50 focus:border-[#83243A]/50 text-sm sm:text-base leading-relaxed transition-all shadow-inner"
+            className="w-full resize-y rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0] p-4 text-[#2D2124] placeholder:text-[#BA1B35]/40 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#F8CDD5]/60 focus:border-[#BA1B35]/50 text-sm sm:text-base leading-relaxed transition-all shadow-inner"
           />
         </div>
 
         {/* Dynamic Detail Pill / Toggle */}
         {(text.trim().length > 0 || showDetails) && (
-          <div className="mt-4 pt-4 border-t border-[#6B1D2F]/10 space-y-3.5 animate-in fade-in duration-200">
+          <div className="mt-4 pt-4 border-t border-[#BA1B35]/15 space-y-3.5 animate-in fade-in duration-200">
             {/* Summary preview & edit */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <span className="text-xs font-serif font-bold text-[#541423] flex items-center gap-1.5 tracking-wide">
-                  <AlignLeft className="w-3.5 h-3.5 text-[#83243A]" />
+                <span className="text-xs font-serif font-bold text-[#661223] flex items-center gap-1.5 tracking-wide">
+                  <AlignLeft className="w-3.5 h-3.5 text-[#BA1B35]" />
                   Summary / Key Takeaway
                 </span>
                 {!isCustomSummary && (
-                  <span className="text-[11px] text-[#83243A] font-serif italic">
+                  <span className="text-[11px] text-[#BA1B35] font-serif italic">
                     Auto-generated from text
                   </span>
                 )}
@@ -364,23 +364,23 @@ export const ThoughtInput: React.FC<ThoughtInputProps> = ({ uid, pastItems = [],
                 }}
                 maxLength={1000}
                 placeholder="A quick summary of this thought..."
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF4EB] border border-[#E5DDD0] text-xs sm:text-sm text-[#2D2124] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#F9D0D3]/50 focus:border-[#83243A]/60 transition-colors"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF4EB] border border-[#E5DDD0] text-xs sm:text-sm text-[#2D2124] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#F8CDD5]/60 focus:border-[#BA1B35]/60 transition-colors"
               />
             </div>
 
             {/* Tags input */}
             <div>
-              <span className="text-xs font-serif font-bold text-[#541423] flex items-center gap-1.5 mb-2 tracking-wide">
-                <TagIcon className="w-3.5 h-3.5 text-[#83243A]" />
+              <span className="text-xs font-serif font-bold text-[#661223] flex items-center gap-1.5 mb-2 tracking-wide">
+                <TagIcon className="w-3.5 h-3.5 text-[#BA1B35]" />
                 Tags
               </span>
 
               <div className="flex flex-wrap items-center gap-2 mb-2">
                 {tags.map((t, idx) => {
                   const tagColors = [
-                    'bg-[#FDE8E9] text-[#6B1D2F] border-[#F2B3B8]',
-                    'bg-[#EFEAF8] text-[#521321] border-[#CFBEED]',
-                    'bg-[#FAF4EB] text-[#541423] border-[#E5DDD0]',
+                    'bg-[#FDECEF] text-[#8E162B] border-[#F8CDD5]',
+                    'bg-[#EFEAF8] text-[#541E38] border-[#CFBEED]',
+                    'bg-[#FAF4EB] text-[#661223] border-[#E5DDD0]',
                   ];
                   const colorClass = tagColors[idx % tagColors.length];
                   return (
@@ -392,7 +392,7 @@ export const ThoughtInput: React.FC<ThoughtInputProps> = ({ uid, pastItems = [],
                       <button
                         type="button"
                         onClick={() => handleRemoveTag(t)}
-                        className="text-[#83243A]/60 hover:text-[#360B15] p-0.5 rounded-full cursor-pointer"
+                        className="text-[#BA1B35]/70 hover:text-[#561320] p-0.5 rounded-full cursor-pointer"
                       >
                         <X className="w-3 h-3" />
                       </button>
@@ -414,13 +414,13 @@ export const ThoughtInput: React.FC<ThoughtInputProps> = ({ uid, pastItems = [],
                       }
                     }}
                     placeholder="+ Add tag (Enter)"
-                    className="px-2.5 py-1 rounded-lg text-xs bg-[#FAF7F2] border border-dashed border-[#83243A]/30 text-[#2D2124] placeholder:text-[#83243A]/40 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#83243A] w-28 font-mono"
+                    className="px-2.5 py-1 rounded-lg text-xs bg-[#FAF7F2] border border-dashed border-[#BA1B35]/35 text-[#2D2124] placeholder:text-[#BA1B35]/40 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#BA1B35] w-28 font-mono"
                   />
                   {tagInput.trim() && (
                     <button
                       type="button"
                       onClick={handleAddTag}
-                      className="p-1 rounded-lg bg-[#FDE8E9] text-[#6B1D2F] hover:bg-[#F9D0D3] text-xs border border-[#F2B3B8] cursor-pointer"
+                      className="p-1 rounded-lg bg-[#FDECEF] text-[#8E162B] hover:bg-[#F8CDD5] text-xs border border-[#F2A9B6] cursor-pointer"
                     >
                       <Plus className="w-3 h-3" />
                     </button>
@@ -432,26 +432,26 @@ export const ThoughtInput: React.FC<ThoughtInputProps> = ({ uid, pastItems = [],
         )}
 
         {error && (
-          <div className="mt-3 p-2.5 rounded-xl bg-[#FFF5F5] text-[#83243A] text-xs border border-[#F2B3B8]">
+          <div className="mt-3 p-2.5 rounded-xl bg-[#FFF6F7] text-[#BA1B35] text-xs border border-[#F2A9B6]">
             {error}
           </div>
         )}
 
         {/* Action bar */}
-        <div className="mt-5 pt-3.5 flex items-center justify-between border-t border-[#6B1D2F]/10">
+        <div className="mt-5 pt-3.5 flex items-center justify-between border-t border-[#BA1B35]/15">
           <div className="flex items-center gap-2">
             {!showDetails && text.trim().length === 0 && (
               <button
                 type="button"
                 onClick={() => setShowDetails(true)}
-                className="text-xs text-[#83243A] hover:text-[#541423] font-serif font-medium inline-flex items-center gap-1 px-2.5 py-1 rounded-lg hover:bg-[#FDE8E9]/50 transition-colors cursor-pointer"
+                className="text-xs text-[#BA1B35] hover:text-[#561320] font-serif font-medium inline-flex items-center gap-1 px-2.5 py-1 rounded-lg hover:bg-[#FDECEF]/60 transition-colors cursor-pointer"
               >
                 <TagIcon className="w-3 h-3" />
                 <span>Add tags & summary</span>
               </button>
             )}
-            <span className="hidden sm:inline text-[11px] text-[#83243A]/60 font-mono">
-              Press <kbd className="px-1.5 py-0.5 rounded bg-[#FAF4EB] border border-[#E5DDD0] text-[#541423] font-mono text-[10px]">⌘</kbd> + <kbd className="px-1.5 py-0.5 rounded bg-[#FAF4EB] border border-[#E5DDD0] text-[#541423] font-mono text-[10px]">Enter</kbd> to save
+            <span className="hidden sm:inline text-[11px] text-[#8E162B]/65 font-mono">
+              Press <kbd className="px-1.5 py-0.5 rounded bg-[#FAF4EB] border border-[#E5DDD0] text-[#661223] font-mono text-[10px]">⌘</kbd> + <kbd className="px-1.5 py-0.5 rounded bg-[#FAF4EB] border border-[#E5DDD0] text-[#661223] font-mono text-[10px]">Enter</kbd> to save
             </span>
           </div>
 
@@ -467,7 +467,7 @@ export const ThoughtInput: React.FC<ThoughtInputProps> = ({ uid, pastItems = [],
                   setShowDetails(false);
                 }}
                 disabled={saving}
-                className="px-3 py-1.5 rounded-xl text-xs font-sans font-medium text-[#83243A]/70 hover:text-[#360B15] hover:bg-[#FDE8E9]/40 transition-colors cursor-pointer"
+                className="px-3 py-1.5 rounded-xl text-xs font-sans font-medium text-[#8E162B]/75 hover:text-[#561320] hover:bg-[#FDECEF]/50 transition-colors cursor-pointer"
               >
                 Clear
               </button>
@@ -477,16 +477,16 @@ export const ThoughtInput: React.FC<ThoughtInputProps> = ({ uid, pastItems = [],
               id="save-item-btn"
               type="submit"
               disabled={saving || !text.trim()}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-serif font-bold text-sm text-[#FCFAF6] bg-[#6B1D2F] hover:bg-[#541423] shadow-scrapbook disabled:opacity-50 disabled:cursor-not-allowed active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-serif font-bold text-sm text-[#FCFAF7] bg-[#BA1B35] hover:bg-[#9C182F] shadow-scrapbook disabled:opacity-50 disabled:cursor-not-allowed active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer border border-[#8E162B]"
             >
               {saving ? (
                 <>
-                  <Loader2 className="w-4 h-4 animate-spin text-[#FDE8E9]" />
+                  <Loader2 className="w-4 h-4 animate-spin text-[#FDECEF]" />
                   <span>Synthesizing...</span>
                 </>
               ) : (
                 <>
-                  <DoodleSparkle className="w-4 h-4 text-[#FDE8E9]" />
+                  <DoodleSparkle className="w-4 h-4 text-[#FDECEF]" />
                   <span>Save to Vault</span>
                   <CornerDownLeft className="w-3.5 h-3.5 opacity-70 hidden sm:inline" />
                 </>

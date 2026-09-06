@@ -24,45 +24,45 @@ export const SignInPrompt: React.FC = () => {
     <div className="max-w-xl mx-auto my-12 px-4">
       <div
         id="welcome-card"
-        className="relative overflow-hidden rounded-3xl bg-[#FFFDF9] border-2 border-[#6B1D2F]/15 shadow-scrapbook-lg p-8 sm:p-10 text-center"
+        className="relative overflow-hidden rounded-3xl bg-[#FFFDF9] border-2 border-[#BA1B35]/20 shadow-scrapbook-lg p-8 sm:p-10 text-center"
       >
         {/* Playful Washi Tape accent */}
         <WashiTape color="lavender" className="-top-2 left-1/2 -translate-x-1/2" rotate="-rotate-1" />
 
         <div className="relative z-10 flex flex-col items-center">
           {/* Emblem */}
-          <div className="w-16 h-16 rounded-2xl bg-[#FDE8E9] text-[#6B1D2F] border border-[#F2B3B8] flex items-center justify-center mb-6 shadow-xs rotate-[-3deg]">
+          <div className="w-16 h-16 rounded-2xl bg-[#FDECEF] text-[#BA1B35] border border-[#F8CDD5] flex items-center justify-center mb-6 shadow-xs rotate-[-3deg]">
             <DoodleFlower className="w-8 h-8" />
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#360B15] mb-2.5 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#561320] mb-2.5 tracking-tight">
             Welcome to Re:mind
           </h2>
 
-          <p className="text-[#6B1D2F]/75 text-sm sm:text-base leading-relaxed max-w-md mb-8 font-sans">
+          <p className="text-[#661223]/80 text-sm sm:text-base leading-relaxed max-w-md mb-8 font-sans">
             Your personal tactile knowledge vault. Capture fleeting thoughts, key takeaways, and serendipitous connections—stored securely with your Google account.
           </p>
 
           {/* Value highlights */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full max-w-md mb-8 text-left">
             <div className="flex items-start gap-2.5 p-3.5 rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0] shadow-2xs">
-              <Shield className="w-4 h-4 text-[#83243A] shrink-0 mt-0.5" />
+              <Shield className="w-4 h-4 text-[#BA1B35] shrink-0 mt-0.5" />
               <div className="text-xs">
-                <span className="font-serif font-bold text-[#360B15] block">Private & Isolated</span>
-                <span className="text-[#6B1D2F]/70 font-sans">Enforced per-user in Firestore</span>
+                <span className="font-serif font-bold text-[#561320] block">Private & Isolated</span>
+                <span className="text-[#661223]/70 font-sans">Enforced per-user in Firestore</span>
               </div>
             </div>
             <div className="flex items-start gap-2.5 p-3.5 rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0] shadow-2xs">
-              <BookmarkCheck className="w-4 h-4 text-[#83243A] shrink-0 mt-0.5" />
+              <BookmarkCheck className="w-4 h-4 text-[#BA1B35] shrink-0 mt-0.5" />
               <div className="text-xs">
-                <span className="font-serif font-bold text-[#360B15] block">Summaries & Tags</span>
-                <span className="text-[#6B1D2F]/70 font-sans">Synthesized via Gemini AI</span>
+                <span className="font-serif font-bold text-[#561320] block">Summaries & Tags</span>
+                <span className="text-[#661223]/70 font-sans">Synthesized via Gemini AI</span>
               </div>
             </div>
           </div>
 
           {errorMsg && (
-            <div className="w-full mb-4 p-3 text-xs rounded-xl bg-[#FFF5F5] text-[#83243A] border border-[#F2B3B8]">
+            <div className="w-full mb-4 p-3 text-xs rounded-xl bg-[#FFF6F7] text-[#BA1B35] border border-[#F2A9B6]">
               {errorMsg}
             </div>
           )}
@@ -71,11 +71,11 @@ export const SignInPrompt: React.FC = () => {
             id="google-signin-btn"
             onClick={handleSignIn}
             disabled={signingIn}
-            className="w-full sm:w-auto min-w-[250px] inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl font-serif font-bold text-sm sm:text-base text-[#FCFAF6] bg-[#6B1D2F] hover:bg-[#541423] shadow-scrapbook active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all disabled:opacity-60 cursor-pointer"
+            className="w-full sm:w-auto min-w-[250px] inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl font-serif font-bold text-sm sm:text-base text-[#FCFAF7] bg-[#BA1B35] hover:bg-[#9C182F] shadow-scrapbook active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all disabled:opacity-60 cursor-pointer border border-[#8E162B]"
           >
             {signingIn ? (
               <>
-                <Loader2 className="w-4 h-4 animate-spin text-[#FDE8E9]" />
+                <Loader2 className="w-4 h-4 animate-spin text-[#FDECEF]" />
                 <span>Opening vault...</span>
               </>
             ) : (
@@ -92,8 +92,8 @@ export const SignInPrompt: React.FC = () => {
             )}
           </button>
 
-          <div className="mt-4 flex items-center gap-1 text-[11px] text-[#83243A]/60 font-mono">
-            <DoodleSparkle className="w-3 h-3 text-[#83243A]/50" />
+          <div className="mt-4 flex items-center gap-1 text-[11px] text-[#BA1B35]/65 font-mono">
+            <DoodleSparkle className="w-3 h-3 text-[#BA1B35]/50" />
             <span>Encrypted & private session</span>
           </div>
         </div>

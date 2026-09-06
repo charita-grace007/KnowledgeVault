@@ -41,7 +41,7 @@ export const DoodleScribble: React.FC<{ className?: string }> = ({ className = '
 
 // Scallop ribbon border divider (repeating organic waves)
 export const ScallopDivider: React.FC<{ className?: string; inverted?: boolean }> = ({
-  className = 'w-full h-3 text-[#6B1D2F]/20',
+  className = 'w-full h-3 text-[#BA1B35]/20',
   inverted = false,
 }) => (
   <div className={`overflow-hidden leading-none select-none ${className}`}>
@@ -59,15 +59,15 @@ export const ScallopDivider: React.FC<{ className?: string; inverted?: boolean }
 
 // Tactile Washi Tape Strip
 export const WashiTape: React.FC<{
-  color?: 'blush' | 'lavender' | 'burgundy' | 'cream';
+  color?: 'blush' | 'lavender' | 'strawberry' | 'cream';
   className?: string;
   rotate?: string;
 }> = ({ color = 'blush', className = '', rotate = '-rotate-1' }) => {
   const bgColors = {
-    blush: 'bg-[#F9D0D3]/80 border-t border-b border-[#F2B3B8]/60 text-[#83243A]',
-    lavender: 'bg-[#E4D8F5]/80 border-t border-b border-[#CFBEED]/60 text-[#541423]',
-    burgundy: 'bg-[#6B1D2F]/20 border-t border-b border-[#6B1D2F]/30 text-[#6B1D2F]',
-    cream: 'bg-[#F5EFE4]/90 border-t border-b border-[#ECE2D0] text-[#6B1D2F]',
+    blush: 'bg-[#F8CDD5]/80 border-t border-b border-[#F2A9B6]/70 text-[#BA1B35]',
+    lavender: 'bg-[#E4D8F5]/80 border-t border-b border-[#CFBEED]/60 text-[#661223]',
+    strawberry: 'bg-[#BA1B35]/20 border-t border-b border-[#BA1B35]/35 text-[#BA1B35]',
+    cream: 'bg-[#F6EFE6]/90 border-t border-b border-[#ECE2D5] text-[#8E162B]',
   };
 
   return (
