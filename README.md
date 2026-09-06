@@ -1,4 +1,4 @@
-# Re:mind (KnowledgeVault)
+# Re:mind
 
 An AI-powered personal knowledge journal. Capture quick thoughts, and Gemini automatically generates a summary and conceptual tags for each entry. A unique "Resurface" feature detects when a new thought is conceptually related to a past saved note and surfaces it in real time.
 
